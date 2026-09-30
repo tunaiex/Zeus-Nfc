@@ -1,1 +1,634 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>ZEUS • NFC Pet ID</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(circle at top,#29231a 0%,#111113 45%,#070708 100%);
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+    max-width:680px;
+    margin:auto;
+    padding:20px 16px 50px;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:45px 10px 30px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid #514632;
+    border-radius:30px;
+    color:#e8bd75;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:58px;
+    letter-spacing:9px;
+    margin:18px 0 5px;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:17px;
+}
+
+/* CARD */
+
+.card{
+    background:rgba(20,20,23,.96);
+    border:1px solid #2d2d32;
+    border-radius:22px;
+    padding:21px;
+    margin:15px 0;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+.card h2{
+    margin-top:0;
+}
+
+/* WARNING */
+
+.warning{
+    border-color:#66512f;
+}
+
+.muted{
+    color:#aaa;
+    line-height:1.6;
+}
+
+/* ZEUS PIXEL */
+
+.zeus{
+    display:flex;
+    justify-content:center;
+    margin:5px 0 12px;
+}
+
+.dog{
+    width:170px;
+    height:125px;
+    position:relative;
+}
+
+.body{
+    position:absolute;
+    width:105px;
+    height:55px;
+    left:25px;
+    top:40px;
+    background:#17171b;
+    border:4px solid #050506;
+    border-radius:40px 50px 25px 30px;
+}
+
+.head{
+    position:absolute;
+    width:58px;
+    height:58px;
+    left:100px;
+    top:25px;
+    background:#17171b;
+    border:4px solid #050506;
+    border-radius:50%;
+}
+
+.ear{
+    position:absolute;
+    width:20px;
+    height:38px;
+    top:8px;
+    background:#17171b;
+    border:4px solid #050506;
+    border-radius:70% 30%;
+}
+
+.ear1{
+    left:100px;
+    transform:rotate(-20deg);
+}
+
+.ear2{
+    left:135px;
+    transform:rotate(20deg);
+}
+
+.eye{
+    position:absolute;
+    width:7px;
+    height:7px;
+    background:white;
+    border-radius:50%;
+    left:135px;
+    top:46px;
+}
+
+.nose{
+    position:absolute;
+    width:9px;
+    height:9px;
+    background:#050506;
+    border-radius:50%;
+    left:148px;
+    top:62px;
+}
+
+.leg{
+    position:absolute;
+    width:13px;
+    height:38px;
+    top:82px;
+    background:#17171b;
+    border:4px solid #050506;
+    border-top:0;
+    border-radius:0 0 8px 8px;
+}
+
+.leg1{left:43px}
+.leg2{left:72px}
+.leg3{left:105px}
+.leg4{left:128px}
+
+.tail{
+    position:absolute;
+    left:13px;
+    top:32px;
+    width:38px;
+    height:40px;
+    border:8px solid #17171b;
+    border-right:0;
+    border-bottom:0;
+    border-radius:30px 0 0 0;
+    transform:rotate(-25deg);
+}
+
+/* BUTTONS */
+
+.btn{
+    display:block;
+    width:100%;
+    padding:15px;
+    margin-top:12px;
+    border-radius:15px;
+    text-align:center;
+    text-decoration:none;
+    font-weight:bold;
+    border:0;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.primary{
+    background:#e8bd75;
+    color:#17120b;
+}
+
+.dark{
+    background:#29292e;
+    color:white;
+}
+
+.whatsapp{
+    background:#25d366;
+    color:#061108;
+}
+
+/* INFO */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:16px;
+}
+
+.info{
+    background:#101013;
+    border-radius:15px;
+    padding:13px;
+}
+
+.label{
+    color:#777;
+    font-size:12px;
+}
+
+.value{
+    margin-top:5px;
+    font-weight:bold;
+    line-height:1.4;
+}
+
+/* PAWS */
+
+.paws{
+    text-align:center;
+    font-size:28px;
+    letter-spacing:7px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    color:#666;
+    font-size:12px;
+    margin-top:25px;
+}
+
+@media(max-width:430px){
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="badge">
+🐾 NFC PET ID
+</div>
+
+<h1>ZEUS</h1>
+
+<p>
+Beni bulduysanız sahibime ulaşın. 🐾
+</p>
+
+</section>
+
+
+<!-- BULUNDU -->
+
+<section class="card warning">
+
+<div class="zeus">
+
+<div class="dog">
+
+<div class="body"></div>
+<div class="tail"></div>
+
+<div class="head"></div>
+
+<div class="ear ear1"></div>
+<div class="ear ear2"></div>
+
+<div class="eye"></div>
+<div class="nose"></div>
+
+<div class="leg leg1"></div>
+<div class="leg leg2"></div>
+<div class="leg leg3"></div>
+<div class="leg leg4"></div>
+
+</div>
+
+</div>
+
+
+<h2>⚠️ Zeus'u buldunuz</h2>
+
+<p class="muted">
+
+Zeus'un tasmasında
+<b>canlı konum takip cihazı</b>
+bulunmaktadır.
+
+Lütfen sahibine haber verin.
+
+</p>
+
+
+<a
+class="btn primary"
+href="tel:05331433391">
+
+📞 SAHİBİNİ ARA
+
+</a>
+
+
+<button
+class="btn whatsapp"
+onclick="sendLocation()">
+
+📍 KONUMUMU WHATSAPP'TAN GÖNDER
+
+</button>
+
+
+<p
+id="status"
+style="text-align:center;color:#888;font-size:12px;margin-top:10px">
+
+</p>
+
+</section>
+
+
+<!-- ZEUS BİLGİ -->
+
+<section class="card">
+
+<h2>🐶 Zeus hakkında</h2>
+
+
+<div class="info-grid">
+
+
+<div class="info">
+
+<div class="label">
+Irk
+</div>
+
+<div class="value">
+German Miniature Pinscher
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="label">
+Yaş
+</div>
+
+<div class="value">
+1 yaş
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="label">
+Kilo
+</div>
+
+<div class="value">
+6,5 kg
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="label">
+Cinsiyet
+</div>
+
+<div class="value">
+Erkek
+</div>
+
+</div>
+
+
+<div
+class="info"
+style="grid-column:1/-1">
+
+<div class="label">
+Karakter
+</div>
+
+<div class="value">
+
+Uysal, oyuncu, insan ve diğer hayvanlarla iyi anlaşır.
+
+</div>
+
+</div>
+
+
+<div
+class="info"
+style="grid-column:1/-1">
+
+<div class="label">
+Bulunduğu bölge
+</div>
+
+<div class="value">
+
+Tekirdağ / Süleymanpaşa
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<a
+class="btn dark"
+href="https://www.instagram.com/egeoix"
+target="_blank">
+
+📸 @egeoix
+
+</a>
+
+
+<a
+class="btn dark"
+href="mailto:egetunaduzz@gmail.com">
+
+✉️ egetunaduzz@gmail.com
+
+</a>
+
+
+</section>
+
+
+<!-- PATİ -->
+
+<section
+class="card"
+style="text-align:center">
+
+<div class="paws">
+
+🐾 🐾 🐾
+
+</div>
+
+<h2>
+Bir pati bırak
+</h2>
+
+<p class="muted">
+
+Zeus'u bulduysan sahibine ulaşmak için
+yukarıdaki iletişim seçeneklerinden
+birini kullanabilirsin.
+
+</p>
+
+</section>
+
+
+<!-- SAHİPLENDİRME -->
+
+<section
+class="card"
+style="text-align:center">
+
+<h2>
+🐾 Gerçekten bir köpek mi istiyorsun?
+</h2>
+
+<p class="muted">
+
+Bir köpek sahiplenmek istiyorsan
+Tekirdağ Köpek Köyü ilanlarına
+göz atabilirsin. ❤️
+
+</p>
+
+
+<a
+class="btn primary"
+href="https://www.instagram.com/tekirdagkopekkoyu2?stkn=ZnRyZWgybGtvMm41"
+target="_blank">
+
+🐶 TEKİRDAĞ KÖPEK KÖYÜNE GİT
+
+</a>
+
+</section>
+
+
+<div class="footer">
+
+ZEUS • NFC PET ID 🐾
+
+</div>
+
+</div>
+
+
+<script>
+
+function sendLocation(){
+
+const status =
+document.getElementById("status");
+
+
+if(!navigator.geolocation){
+
+status.innerText =
+"Bu tarayıcı konum özelliğini desteklemiyor.";
+
+return;
+
+}
+
+
+status.innerText =
+"📍 Konumunuz alınıyor...";
+
+
+navigator.geolocation.getCurrentPosition(
+
+function(position){
+
+const lat =
+position.coords.latitude.toFixed(6);
+
+const lon =
+position.coords.longitude.toFixed(6);
+
+
+const map =
+"https://maps.google.com/?q="
++lat+","+lon;
+
+
+const message =
+"🐶 Zeus'u buldum!%0A"
++"📍 Konumum:%20"
++encodeURIComponent(map);
+
+
+window.location.href =
+"https://wa.me/905331433391?text="
++encodeURIComponent(
+"🐶 Zeus'u buldum!\n📍 Konumum: "+map
+);
+
+},
+
+
+function(){
+
+status.innerText =
+"❌ Konum izni verilmedi. "
++"Lütfen tarayıcıdan konum iznini aç.";
+
+},
+
+{
+
+enableHighAccuracy:true,
+
+timeout:10000,
+
+maximumAge:0
+
+}
+
+);
+
+}
+
+</script>
+
+</body>
+</html>
